@@ -5,63 +5,77 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chc-fighting.github.io/index.html</loc>
-<lastmod>2014-01-09T14:34:44-00:00</lastmod>
+<lastmod>2014-01-09T14:57:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/archives.html</loc>
-<lastmod>2014-01-09T14:34:44-00:00</lastmod>
+<lastmod>2014-01-09T14:57:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/tags.html</loc>
-<lastmod>2014-01-09T14:34:44-00:00</lastmod>
+<lastmod>2014-01-09T14:57:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/categories.html</loc>
-<lastmod>2014-01-09T14:34:44-00:00</lastmod>
+<lastmod>2014-01-09T14:57:41-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/pelican.html</loc>
-<lastmod>2013-11-27T00:00:00-00:00</lastmod>
+<lastmod>2014-01-09T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/pelican-install.html</loc>
-<lastmod>2013-11-27T00:00:00-00:00</lastmod>
+<lastmod>2014-01-09T00:00:00-00:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.7</priority>
 </url>
 
 <url>
-<loc>http://chc-fighting.github.io/category/pelican.html</loc>
-<lastmod>2013-11-27T00:00:00-00:00</lastmod>
+<loc>http://chc-fighting.github.io/category/bian-cheng-zhi-mei.html</loc>
+<lastmod>2014-01-09T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://chc-fighting.github.io/tag/pelican.html</loc>
-<lastmod>2013-11-27T00:00:00-00:00</lastmod>
+<loc>http://chc-fighting.github.io/category/ge-ren-sheng-huo.html</loc>
+<lastmod>2014-01-09T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chc-fighting.github.io/tag/xue-xi-cheng-xu-yuan.html</loc>
+<lastmod>2014-01-09T00:00:00-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chc-fighting.github.io/tag/sheng-huo-cheng-chang.html</loc>
+<lastmod>2014-01-09T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/author/chen-hai-chen.html</loc>
-<lastmod>2013-11-27T00:00:00-00:00</lastmod>
+<lastmod>2014-01-09T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
