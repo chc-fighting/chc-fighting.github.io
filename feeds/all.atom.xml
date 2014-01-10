@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>随风飘飘</title><link href="http://chc-fighting.github.io/" rel="alternate"></link><link href="http://chc-fighting.github.io/feeds/all.atom.xml" rel="self"></link><id>http://chc-fighting.github.io/</id><updated>2014-01-09T00:00:00+08:00</updated><entry><title>Welcome to my personal blog！</title><link href="http://chc-fighting.github.io/pelican.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>陈海琛</name></author><id>tag:chc-fighting.github.io,2014-01-09:pelican.html</id><summary type="html">&lt;h2&gt;Welcome to my page!&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>随风飘飘</title><link href="http://chc-fighting.github.io/" rel="alternate"></link><link href="http://chc-fighting.github.io/feeds/all.atom.xml" rel="self"></link><id>http://chc-fighting.github.io/</id><updated>2014-01-09T00:00:00+08:00</updated><entry><title>Welcome to my personal blog！</title><link href="http://chc-fighting.github.io/pelican.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-01-09:pelican.html</id><summary type="html">&lt;h2&gt;Welcome to my page!&lt;/h2&gt;
 &lt;h4&gt;About me&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我叫&lt;strong&gt;陈海琛&lt;/strong&gt;，现在浙江大学&lt;a href="http://www.isee.zju.edu.cn/"&gt;信电系&lt;/a&gt;抗干扰与导航实验室学习，师从赵民建教授。&lt;/p&gt;
@@ -14,7 +14,7 @@
 浙江省杭州市西湖区浙大路38号 310027&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;MY PHOTO&lt;/strong&gt;&lt;br/&gt;
 &lt;a href="http://chc-fighting.github.io"&gt;&lt;img src="http://bwsur.img38.wal8.com/img38/399377_20140110165053/138935924476.jpg"/&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</summary><category term="生活 成长"></category></entry><entry><title>（转）程序员炼成之路</title><link href="http://chc-fighting.github.io/pelican-install.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>陈海琛</name></author><id>tag:chc-fighting.github.io,2014-01-09:pelican-install.html</id><summary type="html">&lt;h2 style="color: green;"&gt;程序员炼成之路&lt;/h2&gt;
+&lt;/blockquote&gt;</summary><category term="生活 成长"></category></entry><entry><title>（转）程序员炼成之路</title><link href="http://chc-fighting.github.io/pelican-install.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-01-09:pelican-install.html</id><summary type="html">&lt;h2 style="color: green;"&gt;程序员炼成之路&lt;/h2&gt;
 
 &lt;p&gt;建议：
 不要乱买书，不要乱追新技术新名词，基础的东西经过很长时间积累而且还会在未来至少10年通用。
