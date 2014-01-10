@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>随风飘飘</title><link>http://chc-fighting.github.io/</link><description></description><atom:link href="http://chc-fighting.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 09 Jan 2014 00:00:00 +0800</lastBuildDate><item><title>Welcome to my personal blog！</title><link>http://chc-fighting.github.io/pelican.html</link><description>&lt;h2&gt;Welcome to my page!&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>随风飘飘</title><link href="http://chc-fighting.github.io/" rel="alternate"></link><link href="http://chc-fighting.github.io/feeds/all.atom.xml" rel="self"></link><id>http://chc-fighting.github.io/</id><updated>2014-01-09T00:00:00+08:00</updated><entry><title>Welcome to my personal blog！</title><link href="http://chc-fighting.github.io/pelican.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>陈海琛</name></author><id>tag:chc-fighting.github.io,2014-01-09:pelican.html</id><summary type="html">&lt;h2&gt;Welcome to my page!&lt;/h2&gt;
 &lt;h4&gt;About me&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我叫&lt;strong&gt;陈海琛&lt;/strong&gt;，现在浙江大学&lt;a href="http://www.isee.zju.edu.cn/"&gt;信电系&lt;/a&gt;抗干扰与导航实验室学习，师从赵民建教授。&lt;/p&gt;
@@ -14,7 +14,7 @@
 浙江省杭州市西湖区浙大路38号 310027&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;MY PHOTO&lt;/strong&gt;&lt;br/&gt;
 &lt;a href="http://chc-fighting.github.io"&gt;&lt;img src="http://bwsur.img38.wal8.com/img38/399377_20140110165053/138935924476.jpg"/&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">陈海琛</dc:creator><pubDate>Thu, 09 Jan 2014 00:00:00 +0800</pubDate><guid>tag:chc-fighting.github.io,2014-01-09:pelican.html</guid><category>生活 成长</category></item><item><title>（转）程序员炼成之路</title><link>http://chc-fighting.github.io/pelican-install.html</link><description>&lt;h2 style="color: green;"&gt;程序员炼成之路&lt;/h2&gt;
+&lt;/blockquote&gt;</summary><category term="生活 成长"></category></entry><entry><title>（转）程序员炼成之路</title><link href="http://chc-fighting.github.io/pelican-install.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>陈海琛</name></author><id>tag:chc-fighting.github.io,2014-01-09:pelican-install.html</id><summary type="html">&lt;h2 style="color: green;"&gt;程序员炼成之路&lt;/h2&gt;
 
 &lt;p&gt;建议：
 不要乱买书，不要乱追新技术新名词，基础的东西经过很长时间积累而且还会在未来至少10年通用。
@@ -169,4 +169,4 @@ P2P式系统，研究一下BT和电驴的算法。比如：DHT算法。
 学习Thrift，二进制的高性能的通讯中间件，支持数据(对象)序列化和多种类型的RPC服务。
 学习Hadoop。Hadoop框架中最核心的设计就是：MapReduce和HDFS。MapReduce的思想是由Google的一篇论文所提及而被广为流传的，简单的一句话解释MapReduce就是“任务的分解与结果的汇总”。HDFS是Hadoop分布式文件系统（Hadoop Distributed File System）的缩写，为分布式计算存储提供了底层支持。
 了解NoSQL数据库（有人说可能是一个过渡炒作的技术），不过因为超大规模以及高并发的纯动态型网站日渐成为主流，而SNS类网站在数据存取过程中有着实时性等刚性需求，这使得目前NoSQL数据库慢慢成了人们所关注的焦点，并大有成为取代关系型数据库而成为未来主流数据存储模式的趋势。当前NoSQL数据库很多，大部分都是开源的，其中比较知名的有：MemcacheDB、Redis、Tokyo Cabinet(升级版为Kyoto Cabinet)、Flare、MongoDB、CouchDB、Cassandra、Voldemort等。
-写了那么多，回顾一下，觉得自己相当的有成就感。希望大家不要吓着，我自己这十来年也在不断地学习，今天我也在学习中，人生本来就是一个不断学习和练级的过程。不过，一定有漏的，也有不对的，还希望大家补充和更正。（我会根据大家的反馈随时更新此文）欢迎大家通过我的微博（@左耳朵耗子）和twitter（@haoel）和我交流。&lt;/p&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">陈海琛</dc:creator><pubDate>Thu, 09 Jan 2014 00:00:00 +0800</pubDate><guid>tag:chc-fighting.github.io,2014-01-09:pelican-install.html</guid><category>学习 程序员</category></item></channel></rss>
+写了那么多，回顾一下，觉得自己相当的有成就感。希望大家不要吓着，我自己这十来年也在不断地学习，今天我也在学习中，人生本来就是一个不断学习和练级的过程。不过，一定有漏的，也有不对的，还希望大家补充和更正。（我会根据大家的反馈随时更新此文）欢迎大家通过我的微博（@左耳朵耗子）和twitter（@haoel）和我交流。&lt;/p&gt;</summary><category term="学习 程序员"></category></entry></feed>
