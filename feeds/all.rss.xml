@@ -1,7 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>随风飘飘</title><link>http://chc-fighting.github.io/</link><description></description><atom:link href="http://chc-fighting.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 09 Jan 2014 00:00:00 +0800</lastBuildDate><item><title>Welcome to my personal blog！</title><link>http://chc-fighting.github.io/pelican.html</link><description>&lt;div class="highlight"&gt;&lt;pre&gt;    &lt;span class="err"&gt;我叫陈海琛，现在浙江大学信电系读书。我热爱运动，也热爱折腾。在这个博客里写写无聊的事。&lt;/span&gt;
-    &lt;span class="err"&gt;希望大家在这里我能记录下成长的轨迹，也记录下有用的东西，希望能帮助到我，帮助到大家！&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">陈海琛</dc:creator><pubDate>Thu, 09 Jan 2014 00:00:00 +0800</pubDate><guid>tag:chc-fighting.github.io,2014-01-09:pelican.html</guid><category>生活 成长</category></item><item><title>（转）程序员炼成之路</title><link>http://chc-fighting.github.io/pelican-install.html</link><description>&lt;p&gt;建议：
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>随风飘飘</title><link>http://chc-fighting.github.io/</link><description></description><atom:link href="http://chc-fighting.github.io/feeds/all.rss.xml" rel="self"></atom:link><lastBuildDate>Thu, 09 Jan 2014 00:00:00 +0800</lastBuildDate><item><title>Welcome to my personal blog！</title><link>http://chc-fighting.github.io/pelican.html</link><description>&lt;h2&gt;Welcome to my page!&lt;/h2&gt;
+&lt;h4&gt;About me&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;我叫&lt;strong&gt;陈海琛&lt;/strong&gt;，现在浙江大学&lt;a href="http://www.isee.zju.edu.cn/"&gt;信电系&lt;/a&gt;抗干扰与导航实验室学习，是从赵民建教授。&lt;/p&gt;
+&lt;p&gt;我热爱运动，也热爱折腾。在这个博客里写写无聊的事。希望大家在这里我能记录下成长的轨迹，也记录下有用的东西，希望能帮助到我，帮助到大家！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4&gt;Contact me&lt;/h4&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;邮箱&lt;/strong&gt;：&lt;br/&gt;
+&lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#51;&amp;#49;&amp;#48;&amp;#48;&amp;#49;&amp;#48;&amp;#53;&amp;#48;&amp;#57;&amp;#50;&amp;#64;&amp;#122;&amp;#106;&amp;#117;&amp;#46;&amp;#101;&amp;#100;&amp;#117;&amp;#46;&amp;#99;&amp;#110;"&gt;&amp;#51;&amp;#49;&amp;#48;&amp;#48;&amp;#49;&amp;#48;&amp;#53;&amp;#48;&amp;#57;&amp;#50;&amp;#64;&amp;#122;&amp;#106;&amp;#117;&amp;#46;&amp;#101;&amp;#100;&amp;#117;&amp;#46;&amp;#99;&amp;#110;&lt;/a&gt;(校内)
+&lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#99;&amp;#104;&amp;#101;&amp;#110;&amp;#46;&amp;#104;&amp;#97;&amp;#105;&amp;#99;&amp;#104;&amp;#101;&amp;#110;&amp;#57;&amp;#49;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;"&gt;&amp;#99;&amp;#104;&amp;#101;&amp;#110;&amp;#46;&amp;#104;&amp;#97;&amp;#105;&amp;#99;&amp;#104;&amp;#101;&amp;#110;&amp;#57;&amp;#49;&amp;#64;&amp;#103;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&lt;/a&gt;(校外)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;通讯地址&lt;/strong&gt;&lt;br/&gt;
+浙江省杭州市西湖区浙大路38号 310027&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;MY PHOTO&lt;/strong&gt;&lt;br/&gt;
+&lt;a href="http://chc-fighting.github.io"&gt;&lt;img src="http://bwsur.img38.wal8.com/img38/399377_20140110165053/138934423267.jpg"/&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;</description><dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/">陈海琛</dc:creator><pubDate>Thu, 09 Jan 2014 00:00:00 +0800</pubDate><guid>tag:chc-fighting.github.io,2014-01-09:pelican.html</guid><category>生活 成长</category></item><item><title>（转）程序员炼成之路</title><link>http://chc-fighting.github.io/pelican-install.html</link><description>&lt;h2 style="color: green;"&gt;程序员炼成之路&lt;/h2&gt;
+
+&lt;p&gt;建议：
 不要乱买书，不要乱追新技术新名词，基础的东西经过很长时间积累而且还会在未来至少10年通用。
 回顾一下历史，看看历史上时间线上技术的发展，你才能明白明天会是什么样。
 一定要动手，例子不管多么简单，建议至少自己手敲一遍看看是否理解了里头的细枝末节。
@@ -11,16 +26,15 @@
 越来越多的企业在用成本低性能高的Linux和各种开源技术来构架其系统，Windows的成本太高了。
 微软的东西变得太快了，很不持久，他们完全是在玩弄程序员。详情参见《Windows编程革命史》
 所以，我个人认为以后的趋势是前端是Web+移动，后端是Linux+开源。开发这边基本上没Windows什么事。&lt;/p&gt;
-&lt;p&gt;启蒙入门
-1、 学习一门脚本语言，例如Python/Ruby&lt;/p&gt;
-&lt;p&gt;可以让你摆脱对底层语言的恐惧感，脚本语言可以让你很快开发出能用得上的小程序。实践项目:&lt;/p&gt;
+&lt;p&gt;启蒙入门&lt;br/&gt;
+1、学习一门脚本语言，例如Python/Ruby可以让你摆脱对底层语言的恐惧感，脚本语言可以让你很快开发出能用得上的小程序。实践项目:&lt;/p&gt;
 &lt;p&gt;处理文本文件，或者csv (关键词 python csv, python open, python sys) 读一个本地文件，逐行处理（例如 word count，或者处理log）
 遍历本地文件系统 (sys, os, path)，例如写一个程序统计一个目录下所有文件大小并按各种条件排序并保存结果
 跟数据库打交道 (python sqlite)，写一个小脚本统计数据库里条目数量
 学会用各种print之类简单粗暴的方式进行调试
 学会用Google (phrase, domain, use reader to follow tech blogs)
 为什么要学脚本语言，因为他们实在是太方便了，很多时候我们需要写点小工具或是脚本来帮我们解决问题，你就会发现正规的编程语言太难用了。&lt;/p&gt;
-&lt;p&gt;2、 用熟一种程序员的编辑器(不是IDE) 和一些基本工具&lt;/p&gt;
+&lt;p&gt;2、用熟一种程序员的编辑器(不是IDE) 和一些基本工具&lt;/p&gt;
 &lt;p&gt;Vim / Emacs / Notepad++，学会如何配置代码补全，外观，外部命令等。
 Source Insight (或 ctag)
 使用这些东西不是为了Cool，而是这些编辑器在查看、修改代码/配置文章/日志会更快更有效率。&lt;/p&gt;
@@ -35,16 +49,16 @@ Source Insight (或 ctag)
 了解正则表达式，使用正则表达式来查找文件。
 对于程序员来说Unix/Linux比Windows简单多了。（参看我四年前CSDN的博文《其实Unix很简单》）学会使用Unix/Linux你会发现图形界面在某些时候实在是太难用了，相当地相当地降低工作效率。&lt;/p&gt;
 &lt;p&gt;4、 学习Web基础（HTML/CSS/JS) + 服务器端技术 (LAMP)&lt;/p&gt;
-&lt;p&gt;未来必然是Web的世界，学习WEB基础的最佳网站是W3School。&lt;/p&gt;
+&lt;p&gt;未来必然是Web的世界，学习WEB基础的最佳网站是&lt;a href="http://www.w3school.com.cn/" style="color:green"&gt;W3School&lt;/a&gt;。&lt;/p&gt;
 &lt;p&gt;学习HTML基本语法
 学习CSS如何选中HTML元素并应用一些基本样式（关键词：box model）
 学会用  Firefox + Firebug 或 chrome 查看你觉得很炫的网页结构，并动态修改。
-学习使用Javascript操纵HTML元件。理解DOM和动态网页（http://oreilly.com/catalog/9780596527402) 网上有免费的章节，足够用了。或参看 DOM 。
+学习使用Javascript操纵HTML元件。理解DOM和动态网页（&lt;a href="http://oreilly.com/catalog/9780596527402"&gt;http://oreilly.com/catalog/9780596527402&lt;/a&gt;) 网上有免费的章节，足够用了。或参看 DOM 。
 学会用  Firefox + Firebug 或 chrome 调试Javascript代码（设置断点，查看变量，性能，控制台等）
 在一台机器上配置Apache 或 Nginx
 学习PHP，让后台PHP和前台HTML进行数据交互，对服务器相应浏览器请求形成初步认识。实现一个表单提交和反显的功能。
 把PHP连接本地或者远程数据库 MySQL（MySQL 和 SQL现学现用够了）
-跟完一个名校的网络编程课程（例如：http://www.stanford.edu/~ouster/cgi-bin/cs142-fall10/index.php ) 不要觉得需要多于一学期时间，大学生是全职一学期选3-5门课，你业余时间一定可以跟上
+跟完一个名校的网络编程课程（例如：&lt;a href="http://www.stanford.edu/~ouster/cgi-bin/cs142-fall10/index.php"&gt;http://www.stanford.edu/~ouster/cgi-bin/cs142-fall10/index.php&lt;/a&gt; ) 不要觉得需要多于一学期时间，大学生是全职一学期选3-5门课，你业余时间一定可以跟上
 学习一个javascript库（例如jQuery 或 ExtJS）+  Ajax (异步读入一个服务器端图片或者数据库内容）+JSON数据格式。
 HTTP: The Definitive Guide 读完前4章你就明白你每天上网用浏览器的时候发生的事情了(proxy, gateway, browsers)
 做个小网站（例如：一个小的留言板，支持用户登录，Cookie/Session，增、删、改、查，上传图片附件，分页显示）
