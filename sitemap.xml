@@ -5,30 +5,37 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chc-fighting.github.io/index.html</loc>
-<lastmod>2014-02-18T21:18:50-00:00</lastmod>
+<lastmod>2014-02-18T22:04:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/archives.html</loc>
-<lastmod>2014-02-18T21:18:50-00:00</lastmod>
+<lastmod>2014-02-18T22:04:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/tags.html</loc>
-<lastmod>2014-02-18T21:18:50-00:00</lastmod>
+<lastmod>2014-02-18T22:04:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/categories.html</loc>
-<lastmod>2014-02-18T21:18:50-00:00</lastmod>
+<lastmod>2014-02-18T22:04:16-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://chc-fighting.github.io/for20YearsOld.html</loc>
+<lastmod>2014-01-10T00:00:00-00:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
 </url>
 
 <url>
@@ -54,7 +61,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chc-fighting.github.io/category/ge-ren-sheng-huo.html</loc>
-<lastmod>2014-01-09T00:00:00-00:00</lastmod>
+<lastmod>2014-01-10T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -68,14 +75,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://chc-fighting.github.io/tag/sheng-huo-cheng-chang.html</loc>
-<lastmod>2014-01-09T00:00:00-00:00</lastmod>
+<lastmod>2014-01-10T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://chc-fighting.github.io/author/yi-wen-meng-zhi.html</loc>
-<lastmod>2014-01-09T00:00:00-00:00</lastmod>
+<lastmod>2014-01-10T00:00:00-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
