@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>随风飘飘</title><link href="http://chc-fighting.github.io/" rel="alternate"></link><link href="http://chc-fighting.github.io/feeds%5Cge-ren-sheng-huo.atom.xml" rel="self"></link><id>http://chc-fighting.github.io/</id><updated>2014-01-09T00:00:00+08:00</updated><entry><title>Welcome to my personal blog！</title><link href="http://chc-fighting.github.io/life.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-01-09:life.html</id><summary type="html">&lt;h2&gt;Welcome to my page!&lt;/h2&gt;
-&lt;h4&gt;About me&lt;/h4&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>随风飘飘</title><link href="http://chc-fighting.github.io/" rel="alternate"></link><link href="http://chc-fighting.github.io/feeds%5Cge-ren-sheng-huo.atom.xml" rel="self"></link><id>http://chc-fighting.github.io/</id><updated>2014-01-09T00:00:00+08:00</updated><entry><title>Welcome to my personal blog！</title><link href="http://chc-fighting.github.io/life.html" rel="alternate"></link><updated>2014-01-09T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-01-09:life.html</id><summary type="html">&lt;h2 id="welcome-to-my-page"&gt;Welcome to my page!&lt;/h2&gt;
+&lt;h4 id="about-me"&gt;About me&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;我叫&lt;strong&gt;陈海琛&lt;/strong&gt;，现在浙江大学&lt;a href="http://www.isee.zju.edu.cn/"&gt;信电系&lt;/a&gt;抗干扰与导航实验室学习，师从赵民建教授。&lt;/p&gt;
 &lt;p&gt;我热爱运动，也热爱折腾。在这个博客里写写无聊的事。希望我能记录下成长的轨迹，也记录下有用的东西。希望能帮助到我，帮助到大家！&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;h4&gt;Contact me&lt;/h4&gt;
+&lt;h4 id="contact-me"&gt;Contact me&lt;/h4&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;邮箱&lt;/strong&gt;：&lt;br/&gt;
 &lt;a href="&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#51;&amp;#49;&amp;#48;&amp;#48;&amp;#49;&amp;#48;&amp;#53;&amp;#48;&amp;#57;&amp;#50;&amp;#64;&amp;#122;&amp;#106;&amp;#117;&amp;#46;&amp;#101;&amp;#100;&amp;#117;&amp;#46;&amp;#99;&amp;#110;"&gt;&amp;#51;&amp;#49;&amp;#48;&amp;#48;&amp;#49;&amp;#48;&amp;#53;&amp;#48;&amp;#57;&amp;#50;&amp;#64;&amp;#122;&amp;#106;&amp;#117;&amp;#46;&amp;#101;&amp;#100;&amp;#117;&amp;#46;&amp;#99;&amp;#110;&lt;/a&gt;(校内)
