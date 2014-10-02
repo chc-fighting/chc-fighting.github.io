@@ -83,25 +83,26 @@
 这样和的个位肯定是A<em>3%10，十位肯定是(A</em>2+A*3/10)%10，以此类推。
 可以用堆栈保存每一位的结果，最后再输出即可。</p>
 <h3 id="_1">源码：</h3>
-<p><pre><code></p>
+<p><p>
+<pre><code></p>
 <h1 id="include-stdioh">include "stdio.h"</h1>
 <h1 id="include-stdlibh">include "stdlib.h"</h1>
 <p>typedef struct Node *ptrNode;
 typedef ptrNode stack;
 typedef int ElementType;</p>
 <p>struct Node{
-     ElementType Element;
-     ptrNode next;
+   ElementType Element;
+   ptrNode next;
 };</p>
 <p>/<em>检验是否空栈</em>/
 int IsEmpty(stack S)
 {
-    return S-&gt;next == NULL;
+  return S-&gt;next == NULL;
 }
 /<em>销毁一个站，置空</em>/
 void MakeEmpty(stack S)
 {
-    if(S == NULL){
+   if(S == NULL){
         printf("stack is already empty");
         exit(0);
     }
@@ -173,7 +174,8 @@ void MakeEmpty(stack S)
 
 
 <p>}
-</code></pre></p>
+</code></pre>
+</p></p>
 <h2 id="2-07">2-07 素因子分解</h2>
 <p>题目说明：</p>
 <p>给定某个正整数N，求其素因子分解结果，即给出其因式分解表达式 N = p1^k1 * p2^k2 <em>…</em>pm ^km。</p>

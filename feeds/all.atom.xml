@@ -20,25 +20,26 @@
 这样和的个位肯定是A&lt;em&gt;3%10，十位肯定是(A&lt;/em&gt;2+A*3/10)%10，以此类推。
 可以用堆栈保存每一位的结果，最后再输出即可。&lt;/p&gt;
 &lt;h3 id="_1"&gt;源码：&lt;/h3&gt;
-&lt;p&gt;&lt;pre&gt;&lt;code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;
+&lt;pre&gt;&lt;code&gt;&lt;/p&gt;
 &lt;h1 id="include-stdioh"&gt;include "stdio.h"&lt;/h1&gt;
 &lt;h1 id="include-stdlibh"&gt;include "stdlib.h"&lt;/h1&gt;
 &lt;p&gt;typedef struct Node *ptrNode;
 typedef ptrNode stack;
 typedef int ElementType;&lt;/p&gt;
 &lt;p&gt;struct Node{
-     ElementType Element;
-     ptrNode next;
+   ElementType Element;
+   ptrNode next;
 };&lt;/p&gt;
 &lt;p&gt;/&lt;em&gt;检验是否空栈&lt;/em&gt;/
 int IsEmpty(stack S)
 {
-    return S-&amp;gt;next == NULL;
+  return S-&amp;gt;next == NULL;
 }
 /&lt;em&gt;销毁一个站，置空&lt;/em&gt;/
 void MakeEmpty(stack S)
 {
-    if(S == NULL){
+   if(S == NULL){
         printf("stack is already empty");
         exit(0);
     }
@@ -110,7 +111,8 @@ void MakeEmpty(stack S)
 
 
 &lt;p&gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/p&gt;&lt;/p&gt;
 &lt;h2 id="2-07"&gt;2-07 素因子分解&lt;/h2&gt;
 &lt;p&gt;题目说明：&lt;/p&gt;
 &lt;p&gt;给定某个正整数N，求其素因子分解结果，即给出其因式分解表达式 N = p1^k1 * p2^k2 &lt;em&gt;…&lt;/em&gt;pm ^km。&lt;/p&gt;
