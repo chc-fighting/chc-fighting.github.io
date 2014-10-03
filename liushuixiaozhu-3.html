@@ -83,23 +83,26 @@
 这样和的个位肯定是A<em>3%10，十位肯定是(A</em>2+A*3/10)%10，以此类推。
 可以用堆栈保存每一位的结果，最后再输出即可。</p>
 <h3 id="_1">源码：</h3>
-<p><p>
-<pre><code></p>
-<h1 id="include-stdioh">include "stdio.h"</h1>
-<h1 id="include-stdlibh">include "stdlib.h"</h1>
-<p>typedef struct Node *ptrNode;
+<pre><code>
+#include"stdio.h"
+#include"stdlib.h"
+
+typedef struct Node *ptrNode;
 typedef ptrNode stack;
-typedef int ElementType;</p>
-<p>struct Node{
+typedef int ElementType;
+
+struct Node{
    ElementType Element;
    ptrNode next;
-};</p>
-<p>/<em>检验是否空栈</em>/
+};
+
+
+/*检验是否空栈*/
 int IsEmpty(stack S)
 {
-  return S-&gt;next == NULL;
+  return S->next == NULL;
 }
-/<em>销毁一个站，置空</em>/
+/*销毁一个站，置空*/
 void MakeEmpty(stack S)
 {
    if(S == NULL){
@@ -109,27 +112,31 @@ void MakeEmpty(stack S)
     else
         while(!IsEmpty(S))
             popAndReturnTop(S);
-}</p>
-<p>stack Createstack(void)
+}
+
+stack Createstack(void)
 {
-    stack S;</p>
-<div class="highlight"><pre><span class="k">if</span><span class="p">((</span><span class="n">S</span> <span class="o">=</span> <span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">Node</span><span class="p">)))</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">){</span><span class="c1">//不要少了括号！！！</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unable to allocate memory&quot;</span><span class="p">);</span>
-    <span class="n">exit</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="n">S</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="n">MakeEmpty</span><span class="p">(</span><span class="n">S</span><span class="p">);</span>
-<span class="k">return</span> <span class="n">S</span><span class="p">;</span>
-</pre></div>
+    stack S;
 
+    if((S = malloc(sizeof(struct Node))) == NULL){//不要少了括号！！！
+        printf("Unable to allocate memory");
+        exit(0);
+    }
+    S->next = NULL;
+    MakeEmpty(S);
+    return S;
+}
 
-<p>}</p>
-<p Node_="Node));
-" S-_next="S-&gt;next" S-_next_="S-&gt;next;
-" TmpCell="TmpCell" TmpCell-_Element="TmpCell-&gt;Element" TmpCell-_next="TmpCell-&gt;next" TmpCell_="TmpCell;
-" _="=" malloc_sizeof_struct="malloc(sizeof(struct" ptrNode="ptrNode" x_="x;
-">void push(ElementType x, stack S)</p>
-<p>ElementType popAndReturnTop(stack S)
+void push(ElementType x, stack S)
+{
+    ptrNode TmpCell;
+    TmpCell = malloc(sizeof(struct Node));
+    TmpCell->Element = x;
+    TmpCell->next = S->next;
+    S->next = TmpCell;
+}
+
+ElementType popAndReturnTop(stack S)
 {
     ptrNode TmpCell;
     ElementType TopElement;
@@ -138,44 +145,45 @@ void MakeEmpty(stack S)
         exit(0);
     }
     else{
-        TmpCell = S-&gt;next;
-        S-&gt;next = S-&gt;next-&gt;next;
-        TopElement = TmpCell-&gt;Element;
+        TmpCell = S->next;
+        S->next = S->next->next;
+        TopElement = TmpCell->Element;
         free(TmpCell);
     }
     return TopElement;
-}</p>
-<p>int main(void)
+}
+
+
+int main(void)
 {
     int A, N;
     int i,m,n,carry,temp;
-    stack s;</p>
-<div class="highlight"><pre><span class="n">s</span> <span class="o">=</span> <span class="n">Createstack</span><span class="p">();</span>
+    stack s;
 
-<span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">A</span><span class="p">,</span><span class="o">&amp;</span><span class="n">N</span><span class="p">);</span>
-<span class="k">if</span><span class="p">(</span><span class="n">N</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">);</span>
-<span class="n">carry</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span> <span class="o">=</span> <span class="n">N</span><span class="p">;</span> <span class="n">i</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">--</span><span class="p">){</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">A</span> <span class="o">+</span> <span class="n">carry</span><span class="p">;</span>
-    <span class="n">m</span> <span class="o">=</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="n">carry</span> <span class="o">=</span> <span class="n">n</span> <span class="o">/</span> <span class="mi">10</span><span class="p">;</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">i</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">push</span><span class="p">(</span><span class="n">m</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
-    <span class="k">else</span>
-        <span class="nf">push</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">s</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="n">IsEmpty</span><span class="p">(</span><span class="n">s</span><span class="p">)){</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="n">popAndReturnTop</span><span class="p">(</span><span class="n">s</span><span class="p">);</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">temp</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
+    s = Createstack();
 
+    scanf("%d%d",&A,&N);
+    if(N == 0)
+        printf("0");
+    carry = 0;
+    for(i = N; i>0;i--){
+        n = i * A + carry;
+        m = n % 10;
+        carry = n / 10;
+        if(i != 1)
+            push(m,s);
+        else
+            push(n,s);
+    }
+    while(!IsEmpty(s)){
+        temp = popAndReturnTop(s);
+        printf("%d",temp);
+    }
+    return 0;
+}
 
-<p>}
 </code></pre>
-</p></p>
+
 <h2 id="2-07">2-07 素因子分解</h2>
 <p>题目说明：</p>
 <p>给定某个正整数N，求其素因子分解结果，即给出其因式分解表达式 N = p1^k1 * p2^k2 <em>…</em>pm ^km。</p>
@@ -247,12 +255,14 @@ int main(void)
 <p>(A op B) op (C op D)</p>
 <p>将每一种模式写成函数，最后采用穷举法找到计算结果为24的算式。</p>
 <h3 id="_3">源码：</h3>
-<p><pre><code>
-//注意要在输出结果后面加\n，不然会有格式错误，坑爹啊!!!</p>
-<h1 id="include-stdioh_1">include "stdio.h"</h1>
-<h1 id="include-stdlibh_1">include "stdlib.h"</h1>
-<p>char op[5]={'#','+','-','*','/',};</p>
-<p>float cal(float x,float y,int op)
+<pre><code>
+//注意要在输出结果后面加\n，不然会有格式错误，坑爹啊!!!
+#include"stdio.h"
+#include"stdlib.h"
+
+char op[5]={'#','+','-','*','/',};
+
+float cal(float x,float y,int op)
 {
   switch(op)
   {
@@ -261,42 +271,61 @@ int main(void)
     case 3: return x*y;
     case 4: return x/y;
   }
-}</p>
-<p _="=" cal_i_j_op1_="cal(i,j,op1);
-" cal_r1_k_op2_="cal(r1,k,op2);
-" cal_r2_t_op3_="cal(r2,t,op3);
-" float="float" r1="r1" r1_r2_r3_="r1,r2,r3;
-" r2="r2" r3="r3" r3_="r3;
-" return="return">float calculate_model1(float i,float j,float k,float t,int op1,int op2,int op3)</p>
-<p _="=" cal_i_r1_op1_="cal(i,r1,op1);
-" cal_j_k_op2_="cal(j,k,op2);
-" cal_r2_t_op3_="cal(r2,t,op3);
-" float="float" r1="r1" r1_r2_r3_="r1,r2,r3;
-" r2="r2" r3="r3" r3_="r3;
-" return="return">float calculate_model2(float i,float j,float k,float t,int op1,int op2,int op3)</p>
-<p _="=" cal_i_r2_op1_="cal(i,r2,op1);
-" cal_j_r1_op2_="cal(j,r1,op2);
-" cal_k_t_op3_="cal(k,t,op3);
-" float="float" r1="r1" r1_r2_r3="r1,r2,r3" r2="r2" r3="r3" r3_="r3;
-" return="return">float calculate_model3(float i,float j,float k,float t,int op1,int op2,int op3)</p>
-<p _="=" cal_i_r2_op1_="cal(i,r2,op1);
-" cal_j_k_op2_="cal(j,k,op2);
-" cal_r1_t_op3_="cal(r1,t,op3);
-" float="float" r1="r1" r1_r2_r3_="r1,r2,r3;
-" r2="r2" r3="r3" r3_="r3;
-" return="return">float calculate_model4(float i,float j,float k,float t,int op1,int op2,int op3)</p>
-<p _="=" cal_i_j_op1_="cal(i,j,op1);
-" cal_k_t_op3_="cal(k,t,op3);
-" cal_r1_r2_op2_="cal(r1,r2,op2);
-" float="float" r1="r1" r1_r2_r3="r1,r2,r3" r2="r2" r3="r3" r3_="r3;
-" return="return">float calculate_model5(float i,float j,float k,float t,int op1,int op2,int op3)</p>
-<p>int get24(int i,int j,int k,int t)
+}
+
+float calculate_model1(float i,float j,float k,float t,int op1,int op2,int op3)
+{
+  float r1,r2,r3;
+  r1 = cal(i,j,op1);
+  r2 = cal(r1,k,op2);
+  r3 = cal(r2,t,op3);
+  return r3;
+}
+
+float calculate_model2(float i,float j,float k,float t,int op1,int op2,int op3)
+{
+  float r1,r2,r3;
+  r1 = cal(j,k,op2);
+  r2 = cal(i,r1,op1);
+  r3 = cal(r2,t,op3);
+  return r3;
+}
+
+float calculate_model3(float i,float j,float k,float t,int op1,int op2,int op3)
+{
+  float r1,r2,r3 ;
+  r1 = cal(k,t,op3);
+  r2 = cal(j,r1,op2);
+  r3 = cal(i,r2,op1);
+  return r3;
+}
+
+
+float calculate_model4(float i,float j,float k,float t,int op1,int op2,int op3)
+{
+  float r1,r2,r3;
+  r1 = cal(j,k,op2);
+  r2 = cal(r1,t,op3);
+  r3 = cal(i,r2,op1);
+  return r3;
+}
+
+float calculate_model5(float i,float j,float k,float t,int op1,int op2,int op3)
+{
+  float r1,r2,r3 ;
+  r1 = cal(i,j,op1);
+  r2 = cal(k,t,op3);
+  r3 = cal(r1,r2,op2);
+  return r3;
+}
+
+int get24(int i,int j,int k,int t)
 {
     int op1,op2,op3;
     int flag=0;
-    for(op1=1;op1&lt;=4;op1++)
-        for(op2=1;op2&lt;=4;op2++)
-            for(op3=1;op3&lt;=4;op3++)
+    for(op1=1;op1<=4;op1++)
+        for(op2=1;op2<=4;op2++)
+            for(op3=1;op3<=4;op3++)
             {
                if(calculate_model1(i,j,k,t,op1,op2,op3)==24){
                    printf("((%d%c%d)%c%d)%c%d\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;goto OUT;
@@ -313,23 +342,25 @@ int main(void)
                if(calculate_model5(i,j,k,t,op1,op2,op3)==24){
                    printf("(%d%c%d)%c(%d%c%d)\n",i,op[op1],j,op[op2],k,op[op3],t);flag = 1;goto OUT;
                }
-            }</p>
-<p>OUT:    return flag;
-}</p>
-<p>int main()
+            }
+
+OUT:    return flag;
+}
+
+int main()
 {
     int x,y,m,n;
     int i,j,k,t;
     int in[4];
     int flag;
-    for(i=0;i&lt;4;i++)
-        scanf("%d",&amp;in[i]);
-    for(i=0;i&lt;4;i++){
-        for(j=0;j&lt;4;j++){
+    for(i=0;i<4;i++)
+        scanf("%d",&in[i]);
+    for(i=0;i<4;i++){
+        for(j=0;j<4;j++){
             if(j==i) continue;
-            for(k=0;k&lt;4;k++){
+            for(k=0;k<4;k++){
                 if(i==k||j==k) continue;
-                for(t=0;t&lt;4;t++){
+                for(t=0;t<4;t++){
                     if(t==i||t==j||t==k) continue;
                     x = in[i];
                     y = in[j];
@@ -342,14 +373,13 @@ int main(void)
         }
     }
     if(flag == 0)
-     printf("-1\n");</p>
-<p>END:  // system("pause");</p>
-<div class="highlight"><pre><span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
+     printf("-1\n");
 
+ END:   return 0;
+}
 
-<p>}</p>
-<p></code></pre></p>
+</code></pre>
+
 <h2 id="2-09">2-09 装箱问题模拟</h2>
 <p>题目描述：
 假设有N项物品，大小分别为s1, s2, …, si, …, sN，其中si为满足1&lt;= si&lt;=100的整数。要把这些物品装入到容量为100的一批箱子（序号1～N）中。装箱方法是：对每项物品, 顺序扫描箱子，把该物品放入足以能够容下它的第一个箱子中。请写一个程序模拟这种装箱过程，并输出每个物品所在的箱子序号，以及放置全部物品所需的箱子数目。</p>
@@ -360,44 +390,46 @@ int main(void)
 <p>解答说明：
 针对每一项物品，顺序扫描箱子，如果箱子能放得下，记录该物品所在的箱子，并将该箱子的容量更新。</p>
 <h3 id="_4">源码：</h3>
-<p><pre><code></p>
-<h1 id="includestdioh">include"stdio.h"</h1>
-<p>int main(void)
+<pre><code>
+#include"stdio.h"
+
+int main(void)
 {
     int n;
-    int <em>p,</em>q;
-    int i,j,maxCount;</p>
-<div class="highlight"><pre><span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">n</span><span class="p">);</span>
-<span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-<span class="n">q</span> <span class="o">=</span> <span class="p">(</span><span class="kt">int</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="n">n</span><span class="o">*</span><span class="k">sizeof</span><span class="p">(</span><span class="kt">int</span><span class="p">));</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">)));</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
-    <span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">+</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
-<span class="n">maxCount</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">)){</span>
-            <span class="o">*</span><span class="p">(</span><span class="n">q</span><span class="o">+</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-=</span> <span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">);</span>
-            <span class="k">if</span><span class="p">(</span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">maxCount</span><span class="p">)</span>
-                <span class="n">maxCount</span> <span class="o">=</span> <span class="n">j</span><span class="p">;</span>
-            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="o">*</span><span class="p">(</span><span class="n">p</span><span class="o">+</span><span class="n">i</span><span class="p">),</span><span class="n">j</span><span class="p">);</span>
-            <span class="k">break</span><span class="p">;</span>
-        <span class="p">}</span>
-        <span class="k">else</span><span class="p">{</span>
-            <span class="n">j</span><span class="o">++</span><span class="p">;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span><span class="n">maxCount</span><span class="p">);</span>
-
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
+    int *p,*q;
+    int i,j,maxCount;
 
 
-<p>}
-</code></pre></p>
+    scanf("%d",&n);
+    p = (int*)malloc(n*sizeof(int));
+    q = (int*)malloc(n*sizeof(int));
+    for(i=0;i<n;i++)
+        scanf("%d",&(*(p+i)));
+    for(i=0;i<n;i++)
+        *(q+i) = 100;
+    maxCount = 1;
+    for(i=0;i<n;i++){
+        j = 1;
+        while(1){
+            if(*(q+j-1) >= *(p+i)){
+                *(q+j-1) -= *(p+i);
+                if(j > maxCount)
+                    maxCount = j;
+                printf("%d %d\n",*(p+i),j);
+                break;
+            }
+            else{
+                j++;
+            }
+        }
+    }
+    printf("%d\n",maxCount);
+
+    return 0;
+}
+
+</code></pre>
+
 <h2 id="2-10">2-10 海盗分赃</h2>
 <p>题目描述：
 P个海盗偷了D颗钻石后来到公海分赃，一致同意如下分赃策略：</p>
@@ -424,8 +456,8 @@ P个海盗偷了D颗钻石后来到公海分赃，一致同意如下分赃策略
 于是便能得到程序所表示的规律。</p>
 <h3 id="_5">源码：</h3>
 <p><pre><code></p>
-<h1 id="include-stdioh_2">include &lt; stdio.h&gt;</h1>
-<h1 id="include-stdlibh_2">include &lt; stdlib.h&gt;</h1>
+<h1 id="include-stdioh">include &lt; stdio.h&gt;</h1>
+<h1 id="include-stdlibh">include &lt; stdlib.h&gt;</h1>
 <p>int main()
 {
     int d,p;
