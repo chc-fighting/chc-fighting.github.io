@@ -72,9 +72,10 @@
 <p>解答说明：</p>
 <p>思路跟两个链表的合并差不多，唯一的区别是只有两个链表中元素相等时才将该元素插入到新表中。</p>
 <h3 id="_1">源码：</h3>
-<p><pre><code></p>
-<h1 id="includestdioh">include"stdio.h"</h1>
-<p>typedef struct node <em>ptrNode;
+<pre><code>
+#include"stdio.h"
+
+typedef struct node *ptrNode;
 typedef ptrNode LinkList;  //头结点
 typedef ptrNode Position;//中间节点
 typedef int ElementType;
@@ -84,96 +85,91 @@ struct node{
 };
 int IsEmpty(LinkList L)
 {
-    return L-&gt;next == NULL;
+    return L->next == NULL;
 }
-LinkList creatList(void)            <br />
+LinkList creatList(void)              
 {
     LinkList head,r,p;
     int x;
-    head = (struct node</em>)malloc(sizeof(struct node));    //生成新结点
+    head = (struct node*)malloc(sizeof(struct node));    //生成新结点
     r = head;
-    scanf("%d",&amp;x);</p>
-<div class="highlight"><pre><span class="k">while</span><span class="p">(</span><span class="n">x</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">){</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="p">));</span>
-    <span class="n">p</span><span class="o">-&gt;</span><span class="n">Element</span> <span class="o">=</span> <span class="n">x</span><span class="p">;</span>
-    <span class="n">r</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-    <span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-    <span class="n">scanf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">x</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="n">r</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
-<span class="k">return</span> <span class="n">head</span><span class="p">;</span>
-</pre></div>
+    scanf("%d",&x);
 
-
-<p>}
+    while(x != -1){
+        p = (struct node*)malloc(sizeof(struct node));
+        p->Element = x;
+        r->next = p;
+        r = p;
+        scanf("%d",&x);
+    }
+    r->next = NULL;
+    return head;
+}
 LinkList intersectionList(LinkList a, LinkList b)
 {
     Position ha, hb,hc;
-    LinkList c,r,p;</p>
-<div class="highlight"><pre><span class="n">ha</span> <span class="o">=</span> <span class="n">a</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-<span class="n">hb</span> <span class="o">=</span> <span class="n">b</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
+    LinkList c,r,p;
 
-<span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="p">));</span>
-<span class="n">r</span> <span class="o">=</span> <span class="n">c</span><span class="p">;</span>
-<span class="k">while</span><span class="p">((</span><span class="n">ha</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)</span><span class="o">&amp;&amp;</span><span class="p">(</span><span class="n">hb</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">)){</span>
-    <span class="n">p</span> <span class="o">=</span> <span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="o">*</span><span class="p">)</span><span class="n">malloc</span><span class="p">(</span><span class="k">sizeof</span><span class="p">(</span><span class="k">struct</span> <span class="n">node</span><span class="p">));</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">ha</span><span class="o">-&gt;</span><span class="n">Element</span> <span class="o">&lt;</span> <span class="n">hb</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">){</span>
-        <span class="n">ha</span> <span class="o">=</span> <span class="n">ha</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">ha</span><span class="o">-&gt;</span><span class="n">Element</span> <span class="o">&gt;</span> <span class="n">hb</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">){</span>
-        <span class="n">hb</span> <span class="o">=</span> <span class="n">hb</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">else</span><span class="p">{</span>
-        <span class="n">p</span><span class="o">-&gt;</span><span class="n">Element</span> <span class="o">=</span> <span class="n">hb</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">;</span>
-        <span class="n">hb</span> <span class="o">=</span> <span class="n">hb</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-        <span class="n">ha</span> <span class="o">=</span> <span class="n">ha</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-        <span class="n">r</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-        <span class="n">r</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    ha = a->next;
+    hb = b->next;
 
-<span class="n">r</span><span class="o">-&gt;</span><span class="n">next</span> <span class="o">=</span> <span class="nb">NULL</span><span class="p">;</span>
+    c = (struct node*)malloc(sizeof(struct node));
+    r = c;
+    while((ha != NULL)&&(hb != NULL)){
+        p = (struct node*)malloc(sizeof(struct node));
+        if(ha->Element < hb->Element){
+            ha = ha->next;
+        }
+        else if(ha->Element > hb->Element){
+            hb = hb->next;
+        }
+        else{
+            p->Element = hb->Element;
+            hb = hb->next;
+            ha = ha->next;
+            r->next = p;
+            r = p;
+        }
+    }
 
-<span class="k">return</span> <span class="n">c</span><span class="p">;</span>
-</pre></div>
+    r->next = NULL;
 
-
-<p>}
+    return c;
+}
 void printList(LinkList L)
 {
     LinkList hc;
-    int flag = 0;</p>
-<div class="highlight"><pre><span class="n">hc</span> <span class="o">=</span> <span class="n">L</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-<span class="k">if</span><span class="p">(</span><span class="n">hc</span> <span class="o">==</span> <span class="nb">NULL</span><span class="p">)</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;NULL&quot;</span><span class="p">);</span>
-<span class="k">while</span><span class="p">(</span><span class="n">hc</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
-        <span class="n">printf</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">);</span>
-    <span class="k">else</span>
-        <span class="n">flag</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;%d&quot;</span><span class="p">,</span><span class="n">hc</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">);</span>
-    <span class="n">hc</span> <span class="o">=</span> <span class="n">hc</span><span class="o">-&gt;</span><span class="n">next</span><span class="p">;</span>
-<span class="p">}</span>
-</pre></div>
+    int flag = 0;
 
+    hc = L->next;
+    if(hc == NULL)
+        printf("NULL");
+    while(hc != NULL){
+        if(flag)
+            printf(" ");
+        else
+            flag = 1;
+        printf("%d",hc->Element);
+        hc = hc->next;
+    }
+}
 
-<p>}</p>
-<p>int main(void)
+int main(void)
 {
-    LinkList L1,L2,L3;</p>
-<div class="highlight"><pre><span class="n">L1</span> <span class="o">=</span> <span class="n">creatList</span><span class="p">();</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="n">creatList</span><span class="p">();</span>
+    LinkList L1,L2,L3;
 
-<span class="n">L3</span> <span class="o">=</span> <span class="n">intersectionList</span><span class="p">(</span><span class="n">L1</span><span class="p">,</span><span class="n">L2</span><span class="p">);</span>
+    L1 = creatList();
+    L2 = creatList();
 
-<span class="n">printList</span><span class="p">(</span><span class="n">L3</span><span class="p">);</span>
+    L3 = intersectionList(L1,L2);
 
-<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
+    printList(L3);
 
+    return 0;
+}
 
-<p>}</p>
-<p></code></pre></p>
+</code></pre>
+
 <h2 id="2-13">2-13 两个有序序列的中位数</h2>
 <p>题目描述：</p>
 <p>已知有两个等长的非降序序列S1, S2, 设计函数求S1与S2并集的中位数。有序序列A0, A1…AN-1的中位数指A(N-1)/2的值,即第[(N+1)/2]个数（A0为第1个数）。</p>
