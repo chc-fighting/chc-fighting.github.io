@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>随风飘飘</title><link href="http://chc-fighting.github.io/" rel="alternate"></link><link href="http://chc-fighting.github.io/feeds%5Cbian-cheng.atom.xml" rel="self"></link><id>http://chc-fighting.github.io/</id><updated>2014-09-27T00:00:00+08:00</updated><entry><title>PAT-数据结构学习与实验指导</title><link href="http://chc-fighting.github.io/liushuixiaozhu-3.html" rel="alternate"></link><updated>2014-09-27T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-09-27:liushuixiaozhu-3.html</id><summary type="html">&lt;p&gt;PAT(Programming Ability Test)网址 &lt;a href="http://pat.zju.edu.cn/contests/ds/"&gt;http://pat.zju.edu.cn/contests/ds&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>随风飘飘</title><link href="http://chc-fighting.github.io/" rel="alternate"></link><link href="http://chc-fighting.github.io/feeds%5Cbian-cheng.atom.xml" rel="self"></link><id>http://chc-fighting.github.io/</id><updated>2014-09-27T00:00:00+08:00</updated><entry><title>PAT-数据结构学习与实验指导-1</title><link href="http://chc-fighting.github.io/wjj-1.html" rel="alternate"></link><updated>2014-09-27T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-09-27:wjj-1.html</id><summary type="html">&lt;p&gt;PAT(Programming Ability Test)网址 &lt;a href="http://pat.zju.edu.cn/contests/ds/"&gt;http://pat.zju.edu.cn/contests/ds&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;或者参见我CSDN上的博客文章 &lt;a href = "http://blog.csdn.net/wutongyu0113/article/"&gt;http://blog.csdn.net/wutongyu0113/article/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;关于这一部分的题目网上有很多人都给出过解答方法和源码，但大都是以C++完成的，因为C++简单方便。自己当时一心想着先提高C的编程能力再去学习C++，所以一直坚持用C来解决数据结构的问题，虽然没有C++模板类那么方便，很多时候需要自己去定义一些结构体和函数，但这有利于对数据结构内部机理的掌握。&lt;/p&gt;
 &lt;p&gt;下面给出部分题目的答案，还有部分题目自己没有AC，所以暂不放上来了。&lt;/p&gt;
@@ -406,6 +406,649 @@ int main()
     else{
         printf("%d",d-(p/2+1));
     }
+
+
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="2-11"&gt;2-11 两个有序链表序列的合并&lt;/h2&gt;
+&lt;p&gt;题目描述：&lt;/p&gt;
+&lt;p&gt;已知两个非降序链表序列S1与S2，设计函数构造出S1与S2的并集新非降序链表S3。&lt;/p&gt;
+&lt;p&gt;输入格式说明：&lt;/p&gt;
+&lt;p&gt;输入分2行，分别在每行给出由若干个正整数构成的非降序序列，用-1表示序列的结尾（-1不属于这个序列）。数字用空格间隔。&lt;/p&gt;
+&lt;p&gt;输出格式说明：&lt;/p&gt;
+&lt;p&gt;在一行中输出合并后新的非降序链表，数字间用空格分开，结尾不能有多余空格；若新链表为空，输出“NULL”。&lt;/p&gt;
+&lt;p&gt;解答说明：&lt;/p&gt;
+&lt;p&gt;依次扫描两个链表，将元素值较小的那个链表指针往后移，并将较小元素值放进第三个链表中。当其中一个链表扫描完时，将另一个非空链表剩余的值直接复制到新链表中。&lt;/p&gt;
+&lt;h3 id="_6"&gt;源码：&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;
+#include"stdio.h"
+
+typedef struct node *ptrNode;
+typedef ptrNode LinkList;  //头结点
+typedef ptrNode Position;//中间节点
+typedef int ElementType;
+struct node{
+    ElementType Element;
+    Position next;
+};
+
+int IsEmpty(LinkList L)
+{
+    return L-&gt;next == NULL;
+}
+
+LinkList creatList(void)              
+{
+    LinkList head,r,p;
+    int x;
+    head = (struct node*)malloc(sizeof(struct node));    //生成新结点
+    r = head;
+    scanf("%d",&amp;x);
+
+    while(x != -1){
+        p = (struct node*)malloc(sizeof(struct node));
+        p-&gt;Element = x;
+        r-&gt;next = p;
+        r = p;
+        scanf("%d",&amp;x);
+    }
+    r-&gt;next = NULL;
+    return head;
+}
+
+LinkList mergeList(LinkList a, LinkList b)
+{
+    Position ha, hb,hc;
+    LinkList c,r,p;
+
+    ha = a-&gt;next;
+    hb = b-&gt;next;
+
+    c = (struct node*)malloc(sizeof(struct node));
+    r = c;
+    while((ha != NULL)&amp;&amp;(hb != NULL)){
+        p = (struct node*)malloc(sizeof(struct node));
+        if(ha-&gt;Element &lt;= hb-&gt;Element){
+            p-&gt;Element = ha-&gt;Element;
+            ha = ha-&gt;next;
+        }
+        else{
+            p-&gt;Element = hb-&gt;Element;
+            hb = hb-&gt;next;
+        }
+
+        r-&gt;next = p;
+        r = p;
+    }
+    if(ha == NULL){
+        while(hb != NULL){
+            p = (struct node*)malloc(sizeof(struct node));
+            p-&gt;Element = hb-&gt;Element;
+            hb = hb-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+    }
+    if(hb == NULL){
+        while(ha != NULL){
+            p = (struct node*)malloc(sizeof(struct node));
+            p-&gt;Element = ha-&gt;Element;
+            ha = ha-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+    }
+
+    r-&gt;next = NULL;
+
+    return c;
+}
+
+void printList(LinkList L)
+{
+    LinkList hc;
+    int flag = 0;
+
+    hc = L-&gt;next;
+    if(hc == NULL)
+        printf("NULL");
+    while(hc != NULL){
+        if(flag)
+            printf(" ");
+        else
+            flag = 1;
+        printf("%d",hc-&gt;Element);
+        hc = hc-&gt;next;
+    }
+}
+
+int main(void)
+{
+    LinkList L1,L2,L3;
+
+    L1 = creatList();
+    L2 = creatList();
+
+    L3 = mergeList(L1,L2);
+
+    printList(L3);
+
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;</summary><category term="PAT 编程 数据结构 C语言"></category></entry><entry><title>PAT-数据结构学习与实验指导-2</title><link href="http://chc-fighting.github.io/wjj-2.html" rel="alternate"></link><updated>2014-09-27T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-09-27:wjj-2.html</id><summary type="html">&lt;h2 id="2-12"&gt;2-12 两个有序链表序列的交集&lt;/h2&gt;
+&lt;p&gt;题目描述：&lt;/p&gt;
+&lt;p&gt;已知两个非降序链表序列S1与S2，设计函数构造出S1与S2的交集新链表S3。&lt;/p&gt;
+&lt;p&gt;输入格式说明：&lt;/p&gt;
+&lt;p&gt;输入分2行，分别在每行给出由若干个正整数构成的非降序序列，用-1表示序列的结尾（-1不属于这个序列）。数字用空格间隔。&lt;/p&gt;
+&lt;p&gt;输出格式说明：&lt;/p&gt;
+&lt;p&gt;在一行中输出两个输入序列的交集序列，数字间用空格分开，结尾不能有多余空格；若新链表为空，输出“NULL”。&lt;/p&gt;
+&lt;p&gt;解答说明：&lt;/p&gt;
+&lt;p&gt;思路跟两个链表的合并差不多，唯一的区别是只有两个链表中元素相等时才将该元素插入到新表中。&lt;/p&gt;
+&lt;h3 id="_1"&gt;源码：&lt;/h3&gt;
+&lt;p&gt;&lt;pre&gt;&lt;code&gt;&lt;/p&gt;
+&lt;h1 id="includestdioh"&gt;include"stdio.h"&lt;/h1&gt;
+&lt;p&gt;typedef struct node &lt;em&gt;ptrNode;
+typedef ptrNode LinkList;  //头结点
+typedef ptrNode Position;//中间节点
+typedef int ElementType;
+struct node{
+    ElementType Element;
+    Position next;
+};
+int IsEmpty(LinkList L)
+{
+    return L-&amp;gt;next == NULL;
+}
+LinkList creatList(void)            &lt;br /&gt;
+{
+    LinkList head,r,p;
+    int x;
+    head = (struct node&lt;/em&gt;)malloc(sizeof(struct node));    //生成新结点
+    r = head;
+    scanf("%d",&amp;amp;x);&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+    &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;scanf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;}
+LinkList intersectionList(LinkList a, LinkList b)
+{
+    Position ha, hb,hc;
+    LinkList c,r,p;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;ha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;hb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;ha&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hb&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)){&lt;/span&gt;
+    &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;malloc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;sizeof&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ha&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="n"&gt;hb&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;ha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ha&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ha&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;hb&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;hb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hb&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hb&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;hb&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hb&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;ha&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;ha&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;}
+void printList(LinkList L)
+{
+    LinkList hc;
+    int flag = 0;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;hc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;L&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hc&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;NULL&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;hc&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nb"&gt;NULL&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;flag&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+        &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+        &lt;span class="n"&gt;flag&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;hc&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;Element&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;hc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;hc&lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;next&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;int main(void)
+{
+    LinkList L1,L2,L3;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;L1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;creatList&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="n"&gt;L2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;creatList&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+
+&lt;span class="n"&gt;L3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;intersectionList&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;L1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;L2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="n"&gt;printList&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;L3&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;
+&lt;h2 id="2-13"&gt;2-13 两个有序序列的中位数&lt;/h2&gt;
+&lt;p&gt;题目描述：&lt;/p&gt;
+&lt;p&gt;已知有两个等长的非降序序列S1, S2, 设计函数求S1与S2并集的中位数。有序序列A0, A1…AN-1的中位数指A(N-1)/2的值,即第[(N+1)/2]个数（A0为第1个数）。&lt;/p&gt;
+&lt;p&gt;输入格式说明：&lt;/p&gt;
+&lt;p&gt;输入分3行。第1行给出序列的公共长度N（0&amp;lt;N&amp;lt;=100000），随后每行输入一个序列的信息，即N个非降序排列的整数。数字用空格间隔。&lt;/p&gt;
+&lt;p&gt;输出格式说明：&lt;/p&gt;
+&lt;p&gt;在一行中输出两个输入序列的并集序列的中位数。&lt;/p&gt;
+&lt;p&gt;解答说明：&lt;/p&gt;
+&lt;p&gt;利用两个序列都是非降序排列的特性，现将两个序列合并，再取第(N-1）/2个数即可。可调用前面对两个链表进行合并所写的函数。&lt;/p&gt;
+&lt;h3 id="_2"&gt;源码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;
+#include"stdio.h"
+
+typedef struct node *ptrNode;
+typedef ptrNode LinkList;  //头结点
+typedef ptrNode Position;//中间节点
+typedef int ElementType;
+struct node{
+    ElementType Element;
+    Position next;
+};
+
+LinkList creatList(int n)              
+{
+    LinkList head,r,p;
+    int x,i;
+    head = (struct node*)malloc(sizeof(struct node));    //生成新结点
+    r = head;
+    for(i = 0; i &lt; n; i++){
+        scanf("%d",&amp;x);
+        p = (struct node*)malloc(sizeof(struct node));
+        p-&gt;Element = x;
+        r-&gt;next = p;
+        r = p;
+
+    }
+    r-&gt;next = NULL;
+    return head;
+}
+
+LinkList mergeList(LinkList a, LinkList b)
+{
+    Position ha, hb,hc;
+    LinkList c,r,p;
+
+    ha = a-&gt;next;
+    hb = b-&gt;next;
+
+    c = (struct node*)malloc(sizeof(struct node));
+    r = c;
+    while((ha != NULL)&amp;&amp;(hb != NULL)){
+        p = (struct node*)malloc(sizeof(struct node));
+        if(ha-&gt;Element &lt;= hb-&gt;Element){
+            p-&gt;Element = ha-&gt;Element;
+            ha = ha-&gt;next;
+        }
+        else{
+            p-&gt;Element = hb-&gt;Element;
+            hb = hb-&gt;next;
+        }
+
+        r-&gt;next = p;
+        r = p;
+    }
+    if(ha == NULL){
+        while(hb != NULL){
+            p = (struct node*)malloc(sizeof(struct node));
+            p-&gt;Element = hb-&gt;Element;
+            hb = hb-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+    }
+    if(hb == NULL){
+        while(ha != NULL){
+            p = (struct node*)malloc(sizeof(struct node));
+            p-&gt;Element = ha-&gt;Element;
+            ha = ha-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+    }
+
+    r-&gt;next = NULL;
+
+    return c;
+}
+
+int medianOfLinklist(LinkList L, int n)
+{
+    LinkList ha;
+    int i;
+    ha = L;
+
+    for(i = 0; i &lt;= (n-1)/2;i++){
+        ha = ha-&gt;next;
+    }
+
+    return ha-&gt;Element;
+
+}
+
+int main(void)
+{
+    LinkList L1,L2,L3;
+    int n,median;
+
+    scanf("%d",&amp;n);
+    L1 = creatList(n);
+    L2 = creatList(n);
+
+    L3 = mergeList(L1,L2);
+
+    median = medianOfLinklist(L3, 2*n);
+    printf("%d",median);
+
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="3-04"&gt;3-04 一元多项式的乘法与加法运算&lt;/h2&gt;
+&lt;p&gt;题目描述：
+设计函数分别求两个一元多项式的乘积与和。&lt;/p&gt;
+&lt;p&gt;输入格式说明：&lt;/p&gt;
+&lt;p&gt;输入分2行，每行分别先给出多项式非零项的个数，再以指数递降方式输入一个多项式非零项系数和指数（绝对值均为不超过1000的整数）。数字间以空格分隔。&lt;/p&gt;
+&lt;p&gt;输出格式说明：&lt;/p&gt;
+&lt;p&gt;输出分2行，分别以指数递降方式输出乘积多项式以及和多项式非零项的系数和指数。数字间以空格分隔，但结尾不能有多余空格。&lt;/p&gt;
+&lt;p&gt;解答说明：&lt;/p&gt;
+&lt;p&gt;链表的每一个节点储存有系数和指数。
+求和的时候如果指数相等，则将系数相加，注意系数和为0的情况。
+求积的过程相当于多次多次求和的过程，调用求和函数累加即可。&lt;/p&gt;
+&lt;h3 id="_3"&gt;源码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;
+#include"stdio.h"
+#include"stdlib.h"
+
+typedef struct node *ptrNode;
+typedef ptrNode LinkList;  //头结点
+typedef ptrNode Position;//中间节点
+typedef int ElementType;
+struct node{
+    ElementType Coefficient;
+    ElementType Exponent;
+    Position next;
+};
+
+int IsEmpty(LinkList L)
+{
+    return L-&gt;next == NULL;
+}
+
+LinkList creatList(int n)
+{
+    LinkList head,r,p;
+    int coe,exp;
+    head = (struct node*)malloc(sizeof(struct node));    //生成新结点
+    r = head;
+
+    while(n--){
+        scanf("%d%d",&amp;coe,&amp;exp);
+        p = (struct node*)malloc(sizeof(struct node));
+        p-&gt;Coefficient = coe;
+        p-&gt;Exponent = exp;
+        r-&gt;next = p;
+        r = p;
+    }
+    r-&gt;next = NULL;
+    return head;
+}
+
+LinkList add_List(LinkList a, LinkList b)
+{
+    Position ha, hb;
+    LinkList c,r,p;
+    int temp;
+
+    ha = a-&gt;next;
+    hb = b-&gt;next;
+
+    c = (struct node*)malloc(sizeof(struct node));
+    r = c;
+    while((ha != NULL)&amp;&amp;(hb != NULL)){
+        p = (struct node*)malloc(sizeof(struct node));
+        if(ha-&gt;Exponent &lt; hb-&gt;Exponent){
+            p-&gt;Exponent = hb-&gt;Exponent;
+            p-&gt;Coefficient = hb-&gt;Coefficient;
+            hb = hb-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+        else if(ha-&gt;Exponent &gt; hb-&gt;Exponent){
+            p-&gt;Exponent = ha-&gt;Exponent;
+            p-&gt;Coefficient = ha-&gt;Coefficient;
+            ha = ha-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+        else{
+            temp = ha-&gt;Coefficient + hb-&gt;Coefficient;
+            if(temp != 0){
+                p-&gt;Exponent = ha-&gt;Exponent;
+                p-&gt;Coefficient = temp;
+                r-&gt;next = p;
+                r = p;
+            }
+            hb = hb-&gt;next;
+            ha = ha-&gt;next;
+        }
+    }
+    if(ha == NULL){
+        while(hb != NULL){
+            p = (struct node*)malloc(sizeof(struct node));
+            p-&gt;Exponent = hb-&gt;Exponent;
+            p-&gt;Coefficient = hb-&gt;Coefficient;
+            hb = hb-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+    }
+    if(hb == NULL){
+        while(ha != NULL){
+            p = (struct node*)malloc(sizeof(struct node));
+            p-&gt;Exponent = ha-&gt;Exponent;
+            p-&gt;Coefficient = ha-&gt;Coefficient;
+            ha = ha-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+    }
+
+    r-&gt;next = NULL;
+    return c;
+}
+
+
+LinkList mul_List(LinkList a, LinkList b)
+{
+    Position ha, hb;
+    LinkList c,tempC,r,p;
+    ha = a-&gt;next;
+    hb = b-&gt;next;
+    //c = (struct node*)malloc(sizeof(struct node));
+    //c-&gt;next = NULL;
+    c = creatList(0);
+    if(ha == NULL || hb == NULL){
+        return c;
+    }
+
+    while(ha != NULL ){
+        tempC = (struct node*)malloc(sizeof(struct node));
+        r = tempC;
+        hb = b-&gt;next;
+        while(hb != NULL){
+            p = (struct node*)malloc(sizeof(struct node));
+            p-&gt;Exponent = ha-&gt;Exponent + hb-&gt;Exponent;
+            p-&gt;Coefficient = ha-&gt;Coefficient*hb-&gt;Coefficient;
+            hb = hb-&gt;next;
+            r-&gt;next = p;
+            r = p;
+        }
+        r-&gt;next = NULL;
+        c = add_List(c,tempC);  //?????为什么不行？结果总是第一次加后的结果
+        ha = ha-&gt;next;
+    }
+    return c;
+
+}
+void printList(LinkList L)
+{
+    LinkList hc;
+    int flag = 0;
+
+    hc = L-&gt;next;
+    if(hc == NULL)
+        printf("0 0");
+    while(hc != NULL){
+        if(flag)
+            printf(" ");
+        else
+            flag = 1;
+        printf("%d %d",hc-&gt;Coefficient,hc-&gt;Exponent);
+        hc = hc-&gt;next;
+    }
+}
+
+int main(void)
+{
+    int n1,n2;
+    LinkList L1,L2,L3,L4;
+
+    scanf("%d",&amp;n1);
+    L1 = creatList(n1);
+    scanf("%d",&amp;n2);
+    L2 = creatList(n2);
+
+    L3 = add_List(L1,L2);
+    L4 = mul_List(L1,L2);
+    printList(L4);
+    printf("\n");
+    printList(L3);
+
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id="3-05-k"&gt;3-05 求链式线性表的倒数第K项&lt;/h2&gt;
+&lt;p&gt;题目描述：&lt;/p&gt;
+&lt;p&gt;给定一系列正整数，请设计一个尽可能高效的算法，查找倒数第K个位置上的数字。&lt;/p&gt;
+&lt;p&gt;输入格式说明：&lt;/p&gt;
+&lt;p&gt;输入首先给出一个正整数K，随后是若干正整数，最后以一个负整数表示结尾（该负数不算在序列内，不要处理）。&lt;/p&gt;
+&lt;p&gt;输出格式说明：&lt;/p&gt;
+&lt;p&gt;输出倒数第K个位置上的数据。如果这个位置不存在，输出错误信息“NULL”。&lt;/p&gt;
+&lt;p&gt;解答说明：&lt;/p&gt;
+&lt;p&gt;因为是链表，无法知道线性表的长度，也无法返回下标值。
+我的做法是，定义两个指针a,b，都指向链表头节点，然后将b向后移k次，再将a，b同时向后移，当b到达链表末尾时a指向的那个节点值即是倒数第K项。注意特殊情况的考虑，比如链表总长度刚好等于K或者小于K等。&lt;/p&gt;
+&lt;h3 id="_4"&gt;源码&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;
+#include"stdio.h"
+#include"stdlib.h"
+
+typedef struct node *ptrNode;
+typedef ptrNode LinkList;  //头结点
+typedef ptrNode Position;//中间节点
+typedef int ElementType;
+struct node{
+    ElementType Element;
+    Position next;
+};
+
+LinkList creatList(void)              
+{
+    LinkList head,r,p;
+    int x;
+    head = (struct node*)malloc(sizeof(struct node));    //生成新结点。节点生成很耗时，考虑改掉
+    r = head;
+    scanf("%d",&amp;x);
+
+    while(x &gt;= 0){
+        p = (struct node*)malloc(sizeof(struct node));
+        p-&gt;Element = x;
+        r-&gt;next = p;
+        r = p;
+        scanf("%d",&amp;x);
+    }
+    r-&gt;next = NULL;
+    return head;
+}
+
+void printLastKth(LinkList L, int k)
+{
+    Position ha, hb;
+    int i;
+
+    ha = L;
+    hb = L;
+
+        for(i = 0; i &lt; k; i++){
+            hb = hb-&gt;next;
+            if(hb == NULL)
+                break;
+        }
+        if(hb == NULL)
+                printf("NULL");
+        else{
+            while(hb != NULL){
+                hb = hb-&gt;next;
+                ha = ha-&gt;next;
+            }
+            printf("%d",ha-&gt;Element);
+        }
+
+}
+
+void destroyLinkList(LinkList L)
+{
+    LinkList p,q;
+    p = L-&gt;next;
+    while(p){
+        q = p-&gt;next;
+        free(p);
+        p = q;
+    }
+    L = NULL;
+}
+
+int main(void)
+{
+    LinkList L;
+    int k;
+
+    scanf("%d",&amp;k);
+    L = creatList();
+
+    printLastKth(L, k);
+
+    destroyLinkList(L);
 
 
     return 0;
