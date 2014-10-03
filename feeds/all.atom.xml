@@ -392,25 +392,26 @@ P个海盗偷了D颗钻石后来到公海分赃，一致同意如下分赃策略
 之后都是这样，靠前的人一定倾向于投反对票，所以要从后面的人中拉拢，要拉拢他们必须要在原来的基础上多给他们一颗钻石。
 于是便能得到程序所表示的规律。&lt;/p&gt;
 &lt;h3 id="_5"&gt;源码：&lt;/h3&gt;
-&lt;p&gt;&lt;pre&gt;&lt;code&gt;&lt;/p&gt;
-&lt;h1 id="include-stdioh"&gt;include &amp;lt; stdio.h&amp;gt;&lt;/h1&gt;
-&lt;h1 id="include-stdlibh"&gt;include &amp;lt; stdlib.h&amp;gt;&lt;/h1&gt;
-&lt;p&gt;int main()
+&lt;pre&gt;&lt;code&gt;
+#include&lt; stdio.h&gt;
+#include&lt; stdlib.h&gt;
+
+int main()
 {
     int d,p;
-    scanf("%d%d",&amp;amp;d,&amp;amp;p);
+    scanf("%d%d",&amp;d,&amp;p);
     if(p == 3){
         printf("%d",d-1);
     }
     else{
         printf("%d",d-(p/2+1));
-    }&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+    }
 
 
-&lt;p&gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;</summary><category term="PAT 编程 数据结构 C语言"></category></entry><entry><title>黄山，黄山</title><link href="http://chc-fighting.github.io/huangshan.html" rel="alternate"></link><updated>2014-06-26T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-06-26:huangshan.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;我会永远记得那些登高回眸、凭栏远眺、月夜辗转、梦中轻笑的日子&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;</summary><category term="PAT 编程 数据结构 C语言"></category></entry><entry><title>黄山，黄山</title><link href="http://chc-fighting.github.io/huangshan.html" rel="alternate"></link><updated>2014-06-26T00:00:00+08:00</updated><author><name>亦文梦之</name></author><id>tag:chc-fighting.github.io,2014-06-26:huangshan.html</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;我会永远记得那些登高回眸、凭栏远眺、月夜辗转、梦中轻笑的日子&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;从2014年4月份起才不是傻瓜的五个人就酝酿了黄山之行，憧憬过黄山日出，但天公不作美，有空的时间却阴雨连绵，最后选择了去古镇。黄山之行是文渊一干人发起的，最后邀请我，也确实觊觎黄山的美太久，于是一口答应，便有了5.27至5.29三天六人行的的黄山小分队，他们是
 &lt;p&gt;
 文渊： 称职的向导；&lt;br/&gt;

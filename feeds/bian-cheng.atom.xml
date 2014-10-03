@@ -392,22 +392,23 @@ P个海盗偷了D颗钻石后来到公海分赃，一致同意如下分赃策略
 之后都是这样，靠前的人一定倾向于投反对票，所以要从后面的人中拉拢，要拉拢他们必须要在原来的基础上多给他们一颗钻石。
 于是便能得到程序所表示的规律。&lt;/p&gt;
 &lt;h3 id="_5"&gt;源码：&lt;/h3&gt;
-&lt;p&gt;&lt;pre&gt;&lt;code&gt;&lt;/p&gt;
-&lt;h1 id="include-stdioh"&gt;include &amp;lt; stdio.h&amp;gt;&lt;/h1&gt;
-&lt;h1 id="include-stdlibh"&gt;include &amp;lt; stdlib.h&amp;gt;&lt;/h1&gt;
-&lt;p&gt;int main()
+&lt;pre&gt;&lt;code&gt;
+#include&lt; stdio.h&gt;
+#include&lt; stdlib.h&gt;
+
+int main()
 {
     int d,p;
-    scanf("%d%d",&amp;amp;d,&amp;amp;p);
+    scanf("%d%d",&amp;d,&amp;p);
     if(p == 3){
         printf("%d",d-1);
     }
     else{
         printf("%d",d-(p/2+1));
-    }&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
+    }
 
 
-&lt;p&gt;}
-&lt;/code&gt;&lt;/pre&gt;&lt;/p&gt;</summary><category term="PAT 编程 数据结构 C语言"></category></entry></feed>
+    return 0;
+}
+
+&lt;/code&gt;&lt;/pre&gt;</summary><category term="PAT 编程 数据结构 C语言"></category></entry></feed>

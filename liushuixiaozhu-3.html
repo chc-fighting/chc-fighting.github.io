@@ -455,25 +455,26 @@ P个海盗偷了D颗钻石后来到公海分赃，一致同意如下分赃策略
 之后都是这样，靠前的人一定倾向于投反对票，所以要从后面的人中拉拢，要拉拢他们必须要在原来的基础上多给他们一颗钻石。
 于是便能得到程序所表示的规律。</p>
 <h3 id="_5">源码：</h3>
-<p><pre><code></p>
-<h1 id="include-stdioh">include &lt; stdio.h&gt;</h1>
-<h1 id="include-stdlibh">include &lt; stdlib.h&gt;</h1>
-<p>int main()
+<pre><code>
+#include< stdio.h>
+#include< stdlib.h>
+
+int main()
 {
     int d,p;
-    scanf("%d%d",&amp;d,&amp;p);
+    scanf("%d%d",&d,&p);
     if(p == 3){
         printf("%d",d-1);
     }
     else{
         printf("%d",d-(p/2+1));
-    }</p>
-<div class="highlight"><pre><span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-</pre></div>
+    }
 
 
-<p>}
-</code></pre></p>
+    return 0;
+}
+
+</code></pre>
 <section>
 <p id="comment-message">Thank you for reading. Leave your comments below. </p>
 <div class="accordion" id="accordion2">
